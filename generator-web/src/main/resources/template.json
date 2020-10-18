@@ -72,6 +72,12 @@
     "description": "mapper annotation"
   },
   {
+    "id": "26",
+    "name": "modelPageVo",
+    "group": "mybatis",
+    "description": "mapper annotation"
+  },
+  {
     "id": "30",
     "name": "entity",
     "group": "jpa",

@@ -65,4 +65,17 @@ public class GeneratorServiceImpl implements GeneratorService {
         return result;
     }
 
+//    @Override
+    public Map<String, String> getResultByParamsToFile(Map<String, Object> params) throws IOException, TemplateException {
+//        Map<String, String> result = new LinkedHashMap<>(32);
+//        result.put("tableName", params.get("tableName") + "");
+//        List<TemplateConfig> templateConfigList = JSON.parseArray(getTemplateConfig(), TemplateConfig.class);
+//        for (TemplateConfig item : templateConfigList) {
+//            result.put(item.getName(), freemarkerTool.processString(item.getGroup() + "/" + item.getName() + ".ftl", params));
+//        }
+//        return result;
+        Map<String, String> resultByParams = getResultByParams(params);
+
+        return null;
+    }
 }

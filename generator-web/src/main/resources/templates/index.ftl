@@ -398,6 +398,9 @@ CREATE TABLE 'userinfo' (
                     <button type="button" class="btn btn-default generator" id="service">service</button>
                     <button type="button" class="btn btn-default generator" id="service_impl">serviceImpl</button>
                     <button type="button" class="btn btn-default generator" id="controller">controller</button>
+                    <button type="button" class="btn btn-default generator" id="modelPageVo">modelPageVo</button>
+
+
                 </div>
             </div>
         </div>

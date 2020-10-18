@@ -1,11 +1,9 @@
-package ${packageName}.entity;
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
- * @description 222 ${classInfo.classComment}
+ * @description ${classInfo.classComment}
  * @author ${authorName}
  * @date ${.now?string('yyyy-MM-dd')}
  */
@@ -24,6 +22,8 @@ public class ${classInfo.className} implements Serializable {
 </#if>
 
 <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
+    public ${classInfo.className}() {
+    }
 
 <#list classInfo.fieldList as fieldItem>
     public ${fieldItem.fieldClass} get${fieldItem.fieldName?cap_first}() {

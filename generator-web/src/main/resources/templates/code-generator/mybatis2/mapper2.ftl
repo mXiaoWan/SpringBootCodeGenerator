@@ -3,8 +3,6 @@ package ${packageName}.mapper;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import java.util.List;
-import ${packageName}.api.vo.${classInfo.className}PageableVO;
-import ${packageName}.entity.${classInfo.className};
 
 /**
  * @description ${classInfo.classComment}Mapper
@@ -15,24 +13,24 @@ import ${packageName}.entity.${classInfo.className};
 @Repository
 public interface ${classInfo.className}Mapper {
 
-    @Select("select * from ${classInfo.tableName} where id=井{id}")
-    public ${classInfo.className} getById(Long id);
+    @Select("select * from ${classInfo.tableName} where ${classInfo.tableName}_id=井{id}")
+    public ${classInfo.className} getById(Integer id);
 
-    @Options(useGeneratedKeys=true,keyProperty="id")
-    @Insert("insert into ${classInfo.tableName}" +
-            " (<#list classInfo.fieldList as fieldItem >${fieldItem.columnName}<#if fieldItem_has_next>,</#if></#list>)" +
-            " values(<#list classInfo.fieldList as fieldItem >${fieldItem.fieldName}<#if fieldItem_has_next>,<#else>)</#if></#list>")
-    public Long insert(${classInfo.className} ${classInfo.className?uncap_first});
+    @Options(useGeneratedKeys=true,keyProperty="${classInfo.className?uncap_first}Id")
+    @Insert("insert into ${classInfo.tableName}"
+            "(<#list classInfo.fieldList as fieldItem >${fieldItem.columnName}<#if fieldItem_has_next>,</#if></#list>)"
+            "values(<#list classInfo.fieldList as fieldItem >${fieldItem.fieldName}<#if fieldItem_has_next>,</#if>)</#list>")
+    public Integer insert(${classInfo.className} ${classInfo.className?uncap_first});
 
-    @Delete(value = "delete from ${classInfo.tableName} where id=井{id}")
-    Long delete(Long id);
+    @Delete(value = "delete from ${classInfo.tableName} where ${classInfo.tableName}_id=井{${classInfo.className?uncap_first}Id}")
+    boolean delete(Integer id);
 
     @Update(value = "update ${classInfo.tableName} set "
     <#list classInfo.fieldList as fieldItem >
         <#if fieldItem.columnName != "id">+" ${fieldItem.columnName}=井{${fieldItem.fieldName}}<#if fieldItem_has_next>,</#if>"</#if>
     </#list>
-        +" where id=井{id} ")
-    Long update(${classInfo.className} ${classInfo.className?uncap_first});
+        +" where ${classInfo.tableName}_id=井{${classInfo.className?uncap_first}Id} ")
+    boolean update(${classInfo.className} ${classInfo.className?uncap_first});
 
 
     @Results(value = {
@@ -40,7 +38,7 @@ public interface ${classInfo.className}Mapper {
         @Result(property = "${fieldItem.fieldName}", column = "${fieldItem.columnName}")<#if fieldItem_has_next>,</#if>
     </#list>
     })
-    @Select(value = "select * from ${classInfo.tableName} where id=井{id}")
+    @Select(value = "select * from ${classInfo.tableName} where ${classInfo.tableName}_id=井{id}")
     ${classInfo.className} selectOne(Long id);
 
     @Results(value = {
@@ -53,6 +51,6 @@ public interface ${classInfo.className}Mapper {
         +" ${fieldItem.columnName}=井{${fieldItem.fieldName}}<#if fieldItem_has_next> or </#if>"
     </#list>
     )
-    List<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO);
+    List<${classInfo.className}> selectList(${classInfo.className} ${classInfo.className?uncap_first});
 
 }

@@ -1,6 +1,3 @@
-package ${packageName}.controller;
-
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,9 +7,6 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
-import ${packageName}.entity.${classInfo.className};
-import ${packageName}.api.vo.${classInfo.className}PageableVO;
-import ${packageName}.service.${classInfo.className}Service;
 
 /**
  * @description ${classInfo.classComment}
@@ -32,7 +26,7 @@ public class ${classInfo.className}Controller {
     * @date ${.now?string('yyyy/MM/dd')}
     **/
     @RequestMapping("/insert")
-    public Long insert(${classInfo.className} ${classInfo.className?uncap_first}){
+    public ReturnT<String> insert(${classInfo.className} ${classInfo.className?uncap_first}){
         return ${classInfo.className?uncap_first}Service.insert(${classInfo.className?uncap_first});
     }
 
@@ -42,7 +36,7 @@ public class ${classInfo.className}Controller {
     * @date ${.now?string('yyyy/MM/dd')}
     **/
     @RequestMapping("/delete")
-    public Long delete(Long id){
+    public ReturnT<String> delete(int id){
         return ${classInfo.className?uncap_first}Service.delete(id);
     }
 
@@ -52,7 +46,7 @@ public class ${classInfo.className}Controller {
     * @date ${.now?string('yyyy/MM/dd')}
     **/
     @RequestMapping("/update")
-    public Long update(${classInfo.className} ${classInfo.className?uncap_first}){
+    public ReturnT<String> update(${classInfo.className} ${classInfo.className?uncap_first}){
         return ${classInfo.className?uncap_first}Service.update(${classInfo.className?uncap_first});
     }
 
@@ -62,7 +56,7 @@ public class ${classInfo.className}Controller {
     * @date ${.now?string('yyyy/MM/dd')}
     **/
     @RequestMapping("/load")
-    public ${classInfo.className} load(Long id){
+    public ReturnT<String> load(int id){
         return ${classInfo.className?uncap_first}Service.load(id);
     }
 
@@ -72,8 +66,9 @@ public class ${classInfo.className}Controller {
     * @date ${.now?string('yyyy/MM/dd')}
     **/
     @RequestMapping("/pageList")
-    public List<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO) {
-        return ${classInfo.className?uncap_first}Service.pageList(${classInfo.className?uncap_first}PageableVO);
+    public Map<String, Object> pageList(@RequestParam(required = false, defaultValue = "0") int offset,
+                                        @RequestParam(required = false, defaultValue = "10") int pagesize) {
+        return ${classInfo.className?uncap_first}Service.pageList(offset, pagesize);
     }
 
 }

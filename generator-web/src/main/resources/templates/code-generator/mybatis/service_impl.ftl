@@ -1,3 +1,5 @@
+package ${packageName}.service.impl;
+
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -5,6 +7,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import ${packageName}.api.vo.${classInfo.className}PageableVO;
+import ${packageName}.service.${classInfo.className}Service;
+import ${packageName}.mapper.${classInfo.className}Mapper;
+import ${packageName}.entity.${classInfo.className};
 
 /**
  * @description ${classInfo.classComment}
@@ -19,50 +25,58 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 
 
 	@Override
-	public ReturnT<String> insert(${classInfo.className} ${classInfo.className?uncap_first}) {
+	public Long insert(${classInfo.className} ${classInfo.className?uncap_first}) {
 
 		// valid
 		if (${classInfo.className?uncap_first} == null) {
-			return ${returnUtil}.ERROR("必要参数缺失");
+			return -1L;
         }
 
-		${classInfo.className?uncap_first}Mapper.insert(${classInfo.className?uncap_first});
-        return ${returnUtil}.SUCCESS;
+		Long ret = ${classInfo.className?uncap_first}Mapper.insert(${classInfo.className?uncap_first});
+        return ret;
 	}
 
 
 	@Override
-	public ReturnT<String> delete(int id) {
-		int ret = ${classInfo.className?uncap_first}Mapper.delete(id);
-		return ret>0?${returnUtil}.SUCCESS():${returnUtil}.ERROR();
+	public Long delete(Long id) {
+		Long ret = ${classInfo.className?uncap_first}Mapper.delete(id);
+		return ret;
 	}
 
 
 	@Override
-	public ReturnT<String> update(${classInfo.className} ${classInfo.className?uncap_first}) {
-		int ret = ${classInfo.className?uncap_first}Mapper.update(${classInfo.className?uncap_first});
-		return ret>0?${returnUtil}.SUCCESS():${returnUtil}.ERROR();
+	public Long update(${classInfo.className} ${classInfo.className?uncap_first}) {
+		Long ret = ${classInfo.className?uncap_first}Mapper.update(${classInfo.className?uncap_first});
+		return ret;
 	}
 
 
 	@Override
-	public ${classInfo.className} load(int id) {
-		return ${classInfo.className?uncap_first}Mapper.load(id);
+	public ${classInfo.className} load(Long id) {
+		return ${classInfo.className?uncap_first}Mapper.getById(id);
 	}
 
 
-	@Override
-	public Map<String,Object> pageList(int offset, int pagesize) {
+	// @Override
+	// public List<${classInfo.className}> pageList(Long offset, Long pagesize) {
 
-		List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Mapper.pageList(offset, pagesize);
-		int totalCount = ${classInfo.className?uncap_first}Mapper.pageListCount(offset, pagesize);
+		// List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Mapper.pageList(offset, pagesize);
+		// return pageList;
+		// Long totalCount = ${classInfo.className?uncap_first}Mapper.pageListCount(offset, pagesize);
 
 		// result
-		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("pageList", pageList);
-		result.put("totalCount", totalCount);
+		// Map<String, Object> result = new HashMap<String, Object>();
+		// result.put("pageList", pageList);
+		// result.put("totalCount", totalCount);
 
-		return result;
+		// return result;
+	// }
+	/**
+	* 查询列表
+	*/
+	public List<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO){
+
+		return ${classInfo.className?uncap_first}Mapper.pageList(${classInfo.className?uncap_first}PageableVO);
 	}
 
 }

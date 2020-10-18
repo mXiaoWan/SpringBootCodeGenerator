@@ -1,15 +1,16 @@
-package ${packageName}.entity;
+package ${packageName}.api.vo;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import ${packageName}.common.vo.*;
 
 /**
- * @description 222 ${classInfo.classComment}
+ * @description ${classInfo.classComment}
  * @author ${authorName}
  * @date ${.now?string('yyyy-MM-dd')}
  */
-public class ${classInfo.className} implements Serializable {
+public class ${classInfo.className}PageableVO  extends Pageable implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
