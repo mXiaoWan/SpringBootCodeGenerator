@@ -9,6 +9,7 @@ public class GeneratorWebApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GeneratorWebApplication.class, args);
+
     }
 
 }
