@@ -14,5 +14,7 @@ public class TemplateConfig implements Serializable {
     String group;
     String path;
     String description;
+    String filePackage;
+    String className;
 
 }

@@ -14,5 +14,6 @@ import java.util.Map;
 public interface GeneratorService {
 
     public Map<String, String> getResultByParams(Map<String, Object> params) throws IOException, TemplateException;
+    public Map<String, String> getResultByParamsToFile(Map<String, Object> params) throws IOException, TemplateException;
 
 }

@@ -318,7 +318,8 @@ public class TableParseUtil {
         if (paramInfo.getTableSql().trim().startsWith("\"")) {
             paramInfo.setTableSql("{" + paramInfo.getTableSql());
         }
-        if (JSON.isValid(paramInfo.getTableSql())) {
+        if (true) {
+//            if (JSON.isValid(paramInfo.getTableSql())) {
             if (paramInfo.getTableSql().trim().startsWith("{")) {
                 JSONObject jsonObject = JSONObject.parseObject(paramInfo.getTableSql().trim());
                 //parse FieldList by JSONObject

@@ -33,25 +33,33 @@
     "id": "20",
     "name": "controller",
     "group": "mybatis",
-    "description": "controller"
+    "description": "controller",
+    "className": "baseClassNameController",
+    "filePackage": "controller"
   },
   {
     "id": "21",
     "name": "service",
     "group": "mybatis",
-    "description": "service"
+    "description": "service",
+    "className": "baseClassNameService",
+    "filePackage": "service"
   },
   {
     "id": "22",
     "name": "service_impl",
     "group": "mybatis",
-    "description": "service_impl"
+    "description": "service_impl",
+    "className": "baseClassNameServiceImpl",
+    "filePackage": "service.impl"
   },
   {
     "id": "23",
     "name": "mapper",
     "group": "mybatis",
-    "description": "mapper"
+    "description": "mapper",
+    "className": "baseClassNameMapper",
+    "filePackage": "mapper"
   },
   {
     "id": "24",
@@ -63,19 +71,25 @@
     "id": "25",
     "name": "model",
     "group": "mybatis",
-    "description": "model"
+    "description": "model",
+    "className": "baseClassName",
+    "filePackage": "entity"
   },
   {
     "id": "26",
     "name": "mapper2",
     "group": "mybatis",
-    "description": "mapper annotation"
+    "description": "mapper annotation",
+    "className": "baseClassNameMapper",
+    "filePackage": "mapper"
   },
   {
-    "id": "26",
+    "id": "27",
     "name": "modelPageVo",
     "group": "mybatis",
-    "description": "mapper annotation"
+    "description": "mapper annotation",
+    "className": "baseClassNamePageableVO",
+    "filePackage": "api.vo"
   },
   {
     "id": "30",

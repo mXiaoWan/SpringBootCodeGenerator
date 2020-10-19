@@ -76,6 +76,7 @@ public class IndexController {
 
         //3.generate the code by freemarker template and param . Freemarker根据参数和模板生成代码
         Map<String, String> result = generatorService.getResultByParams(params);
+        Map<String, String> result2 = generatorService.getResultByParamsToFile(params);
 
         return ReturnT.SUCCESS(result);
     }
