@@ -74,6 +74,7 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	/**
 	* 查询列表
 	*/
+	@Override
 	public List<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO){
 
 		return ${classInfo.className?uncap_first}Mapper.pageList(${classInfo.className?uncap_first}PageableVO);

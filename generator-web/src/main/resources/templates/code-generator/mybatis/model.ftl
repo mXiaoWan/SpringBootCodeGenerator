@@ -4,9 +4,11 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
- * @description 222 ${classInfo.classComment}
+ * @description ${classInfo.classComment}
  * @author ${authorName}
  * @date ${.now?string('yyyy-MM-dd')}
  */

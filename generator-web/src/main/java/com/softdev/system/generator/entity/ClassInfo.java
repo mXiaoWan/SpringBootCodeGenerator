@@ -16,5 +16,6 @@ public class ClassInfo {
     private String className;
     private String classComment;
     private List<FieldInfo> fieldList;
+    private String prefixTableName = "market_";
 
 }

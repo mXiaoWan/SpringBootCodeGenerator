@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import ${packageName}.common.vo.*;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @description ${classInfo.classComment}
