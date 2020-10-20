@@ -1,5 +1,8 @@
 package ${packageName}.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.xiaomi.nrme.market.common.vo.PageResp;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -7,7 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import ${packageName}.api.vo.${classInfo.className}PageableVO;
+import ${packageName}.api.vo.${classInfo.className?uncap_first}.${classInfo.className}PageableVO;
 import ${packageName}.service.${classInfo.className}Service;
 import ${packageName}.mapper.${classInfo.className}Mapper;
 import ${packageName}.entity.${classInfo.className};
@@ -56,28 +59,18 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 		return ${classInfo.className?uncap_first}Mapper.getById(id);
 	}
 
-
-	// @Override
-	// public List<${classInfo.className}> pageList(Long offset, Long pagesize) {
-
-		// List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Mapper.pageList(offset, pagesize);
-		// return pageList;
-		// Long totalCount = ${classInfo.className?uncap_first}Mapper.pageListCount(offset, pagesize);
-
-		// result
-		// Map<String, Object> result = new HashMap<String, Object>();
-		// result.put("pageList", pageList);
-		// result.put("totalCount", totalCount);
-
-		// return result;
-	// }
-	/**
-	* 查询列表
-	*/
 	@Override
-	public List<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO){
+	public List<${classInfo.className}> list(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO){
+		List<${classInfo.className}> ${classInfo.className?uncap_first}s = ${classInfo.className?uncap_first}Mapper.pageList(${classInfo.className?uncap_first}PageableVO);
+		return ${classInfo.className?uncap_first}s;
+	}
 
-		return ${classInfo.className?uncap_first}Mapper.pageList(${classInfo.className?uncap_first}PageableVO);
+	@Override
+	public PageResp<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO){
+		PageHelper.startPage(${classInfo.className?uncap_first}PageableVO.getPageNum(), ${classInfo.className?uncap_first}PageableVO.getPageSize());
+		List<${classInfo.className}> ${classInfo.className?uncap_first}s = ${classInfo.className?uncap_first}Mapper.pageList(${classInfo.className?uncap_first}PageableVO);
+		PageResp<${classInfo.className}> pageResp = new PageResp<>((Page)${classInfo.className?uncap_first}s);
+		return pageResp;
 	}
 
 }

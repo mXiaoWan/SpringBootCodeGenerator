@@ -89,7 +89,15 @@
     "group": "mybatis",
     "description": "mapper annotation",
     "className": "baseClassNamePageableVO",
-    "filePackage": "api.vo"
+    "filePackage": "api.vo.baseClassName"
+  },
+  {
+    "id": "28",
+    "name": "modelVo",
+    "group": "mybatis",
+    "description": "mapper annotation",
+    "className": "baseClassNameVO",
+    "filePackage": "api.vo.baseClassName"
   },
   {
     "id": "30",

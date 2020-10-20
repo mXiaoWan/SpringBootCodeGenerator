@@ -3,7 +3,7 @@ package ${packageName}.mapper;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import java.util.List;
-import ${packageName}.api.vo.${classInfo.className}PageableVO;
+import ${packageName}.api.vo.${classInfo.className?uncap_first}.${classInfo.className}PageableVO;
 import ${packageName}.entity.${classInfo.className};
 
 /**
@@ -50,9 +50,21 @@ public interface ${classInfo.className}Mapper {
     })
     @Select(value = "select * from ${classInfo.prefixTableName}${classInfo.tableName} where 1=1  "
     <#list classInfo.fieldList as fieldItem >
+         +"AND ${fieldItem.columnName}=井{${fieldItem.fieldName}}"
+    </#list>
+    )
+    List<${classInfo.className}> list(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO);
+
+
+    @Results(value = {
+    <#list classInfo.fieldList as fieldItem >
+        @Result(property = "${fieldItem.fieldName}", column = "${fieldItem.columnName}")<#if fieldItem_has_next>,</#if>
+    </#list>
+    })
+    @Select(value = "select * from ${classInfo.prefixTableName}${classInfo.tableName} where 1=1  "
+    <#list classInfo.fieldList as fieldItem >
         // +" ${fieldItem.columnName}=井{${fieldItem.fieldName}}<#if fieldItem_has_next> or </#if>"
     </#list>
-        +"limit#{}
     )
     List<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO);
 

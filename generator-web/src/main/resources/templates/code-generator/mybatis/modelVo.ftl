@@ -3,7 +3,7 @@ package ${packageName}.api.vo;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import ${packageName}.common.vo.Pageable;
+import ${packageName}.common.vo.*;
 import lombok.Data;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  */
 @Data
 @ApiModel("${classInfo.classComment}")
-public class ${classInfo.className}PageableVO  extends Pageable implements Serializable {
+public class ${classInfo.className}VO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

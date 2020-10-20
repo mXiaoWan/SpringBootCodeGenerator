@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 import ${packageName}.entity.${classInfo.className};
-import ${packageName}.api.vo.${classInfo.className}PageableVO;
+import ${packageName}.api.vo.${classInfo.className?uncap_first}.${classInfo.className}PageableVO;
+import ${packageName}.common.vo.PageResp;
 import ${packageName}.service.${classInfo.className}Service;
 
 import io.swagger.annotations.Api;
@@ -79,13 +80,24 @@ public class ${classInfo.className}Controller {
     }
 
     /**
+    * 查询 列表
+    * @author lizhao
+    * @date 2020/10/19
+    **/
+    @RequestMapping("/list")
+    @ApiOperation(value = "查询${classInfo.classComment}列表")
+    public List<${classInfo.className}> list(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO) {
+        return ${classInfo.className?uncap_first}Service.list(${classInfo.className?uncap_first}PageableVO);
+    }
+
+    /**
     * 查询 分页查询
     * @author ${authorName}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
     @RequestMapping("/pageList")
     @ApiOperation(value = "查询${classInfo.classComment}分页列表")
-    public List<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO) {
+    public PageResp<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO) {
         return ${classInfo.className?uncap_first}Service.pageList(${classInfo.className?uncap_first}PageableVO);
     }
 

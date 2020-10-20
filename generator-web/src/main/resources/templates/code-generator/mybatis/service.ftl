@@ -2,7 +2,8 @@ package ${packageName}.service;
 
 import java.util.Map;
 import java.util.List;
-import ${packageName}.api.vo.${classInfo.className}PageableVO;
+import ${packageName}.api.vo.${classInfo.className?uncap_first}.${classInfo.className}PageableVO;
+import ${packageName}.common.vo.PageResp;
 import ${packageName}.entity.${classInfo.className};
 
 
@@ -34,13 +35,12 @@ public interface ${classInfo.className}Service {
     public ${classInfo.className} load(Long id);
 
     /**
-    * 分页查询
-    */
-    // public List<${classInfo.className}> pageList(Long offset, Long pagesize);
-
-
-    /**
     * 查询列表
     */
-    public List<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO);
+    List<${classInfo.className}> list(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO);
+
+    /**
+    * 分页查询
+    */
+    PageResp<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO);
 }

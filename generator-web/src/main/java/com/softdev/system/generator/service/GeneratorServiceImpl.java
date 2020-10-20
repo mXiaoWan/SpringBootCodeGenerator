@@ -64,7 +64,7 @@ public class GeneratorServiceImpl implements GeneratorService {
         return result;
     }
 
-        @Override
+    @Override
     public Map<String, String> getResultByParamsToFile(Map<String, Object> params) throws IOException, TemplateException {
 //        Map<String, String> result = new LinkedHashMap<>(32);
 //        result.put("tableName", params.get("tableName") + "");
@@ -88,12 +88,17 @@ public class GeneratorServiceImpl implements GeneratorService {
         keys.add("mapper2");
         keys.add("model");
         keys.add("modelPageVo");
+        keys.add("modelVo");
         for (String key : keys) {
             String code = resultByParams.get(key);
             TemplateConfig templateConfig = collect.get(key);
             String filePackage = templateConfig.getFilePackage();
 
-            String path = (basePath + filePackage).replaceAll("\\.", Matcher.quoteReplacement(File.separator));
+            String path = (basePath + filePackage)
+                    .replaceAll("baseClassName", classInfo.getTableName())
+                    .replaceAll("_","\\.")
+                    .replaceAll("\\.", Matcher.quoteReplacement(File.separator));
+
             File file = new File(path);
             if (!file.exists() && !file.isDirectory()) {
                 file.mkdirs();
@@ -118,7 +123,7 @@ public class GeneratorServiceImpl implements GeneratorService {
         path = path + File.separator + "tmp" + File.separator;
         String resultPath = path + packageName;
         resultPath = resultPath.replaceAll("\\.", Matcher.quoteReplacement(File.separator));
-        resultPath+=File.separator;
+        resultPath += File.separator;
         System.out.println(resultPath);
         return resultPath;
     }
