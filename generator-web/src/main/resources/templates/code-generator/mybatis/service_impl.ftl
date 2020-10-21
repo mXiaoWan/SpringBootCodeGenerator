@@ -69,7 +69,9 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	public PageResp<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO){
 		PageHelper.startPage(${classInfo.className?uncap_first}PageableVO.getPageNum(), ${classInfo.className?uncap_first}PageableVO.getPageSize());
 		List<${classInfo.className}> ${classInfo.className?uncap_first}s = ${classInfo.className?uncap_first}Mapper.pageList(${classInfo.className?uncap_first}PageableVO);
-		PageResp<${classInfo.className}> pageResp = new PageResp<>((Page)${classInfo.className?uncap_first}s);
+		Page<${classInfo.className}> page = (Page<${classInfo.className}>) ${classInfo.className?uncap_first}s;
+		PageResp<${classInfo.className}> pageResp = new PageResp<>(page.getPageNum(), page.getPageSize()
+		, page.getTotal(), page.getResult());
 		return pageResp;
 	}
 

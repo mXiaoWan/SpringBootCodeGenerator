@@ -1,12 +1,14 @@
 package ${packageName}.controller;
 
+import com.xiaomi.nrme.market.common.vo.IdVO;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +17,7 @@ import java.util.Map;
 import ${packageName}.entity.${classInfo.className};
 import ${packageName}.api.vo.${classInfo.className?uncap_first}.${classInfo.className}PageableVO;
 import ${packageName}.common.vo.PageResp;
+import ${packageName}.common.vo.IdVO;
 import ${packageName}.service.${classInfo.className}Service;
 
 import io.swagger.annotations.Api;
@@ -40,9 +43,9 @@ public class ${classInfo.className}Controller {
     * @author ${authorName}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
-    @RequestMapping("/insert")
+    @PostMapping("/insert")
     @ApiOperation(value = "新增${classInfo.classComment}")
-    public Long insert(${classInfo.className} ${classInfo.className?uncap_first}){
+    public Long insert(@RequestBody ${classInfo.className} ${classInfo.className?uncap_first}){
         return ${classInfo.className?uncap_first}Service.insert(${classInfo.className?uncap_first});
     }
 
@@ -51,10 +54,10 @@ public class ${classInfo.className}Controller {
     * @author ${authorName}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
-    @RequestMapping("/delete")
+    @PostMapping("/delete")
     @ApiOperation(value = "刪除${classInfo.classComment}")
-    public Long delete(Long id){
-        return ${classInfo.className?uncap_first}Service.delete(id);
+    public Long delete(@RequestBody IdVO id){
+        return ${classInfo.className?uncap_first}Service.delete(id.getId());
     }
 
     /**
@@ -62,9 +65,9 @@ public class ${classInfo.className}Controller {
     * @author ${authorName}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
-    @RequestMapping("/update")
+    @PostMapping("/update")
     @ApiOperation(value = "更新${classInfo.classComment}")
-    public Long update(${classInfo.className} ${classInfo.className?uncap_first}){
+    public Long update(@RequestBody ${classInfo.className} ${classInfo.className?uncap_first}){
         return ${classInfo.className?uncap_first}Service.update(${classInfo.className?uncap_first});
     }
 
@@ -73,10 +76,10 @@ public class ${classInfo.className}Controller {
     * @author ${authorName}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
-    @RequestMapping("/load")
+    @PostMapping("/load")
     @ApiOperation(value = "查询 根据主键 id 查询${classInfo.classComment}")
-    public ${classInfo.className} load(Long id){
-        return ${classInfo.className?uncap_first}Service.load(id);
+    public ${classInfo.className} load(@RequestBody IdVO id){
+        return ${classInfo.className?uncap_first}Service.load(id.getId());
     }
 
     /**
@@ -84,9 +87,9 @@ public class ${classInfo.className}Controller {
     * @author lizhao
     * @date 2020/10/19
     **/
-    @RequestMapping("/list")
+    @PostMapping("/list")
     @ApiOperation(value = "查询${classInfo.classComment}列表")
-    public List<${classInfo.className}> list(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO) {
+    public List<${classInfo.className}> list(@RequestBody ${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO) {
         return ${classInfo.className?uncap_first}Service.list(${classInfo.className?uncap_first}PageableVO);
     }
 
@@ -95,9 +98,9 @@ public class ${classInfo.className}Controller {
     * @author ${authorName}
     * @date ${.now?string('yyyy/MM/dd')}
     **/
-    @RequestMapping("/pageList")
+    @PostMapping("/pageList")
     @ApiOperation(value = "查询${classInfo.classComment}分页列表")
-    public PageResp<${classInfo.className}> pageList(${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO) {
+    public PageResp<${classInfo.className}> pageList(@RequestBody ${classInfo.className}PageableVO ${classInfo.className?uncap_first}PageableVO) {
         return ${classInfo.className?uncap_first}Service.pageList(${classInfo.className?uncap_first}PageableVO);
     }
 
