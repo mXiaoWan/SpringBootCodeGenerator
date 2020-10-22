@@ -70,8 +70,8 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 		PageHelper.startPage(${classInfo.className?uncap_first}PageableVO.getPageNum(), ${classInfo.className?uncap_first}PageableVO.getPageSize());
 		List<${classInfo.className}> ${classInfo.className?uncap_first}s = ${classInfo.className?uncap_first}Mapper.pageList(${classInfo.className?uncap_first}PageableVO);
 		Page<${classInfo.className}> page = (Page<${classInfo.className}>) ${classInfo.className?uncap_first}s;
-		PageResp<${classInfo.className}> pageResp = new PageResp<>(page.getPageNum(), page.getPageSize()
-		, page.getTotal(), page.getResult());
+		PageResp<${classInfo.className}> pageResp = new PageResp<>(page.getPageSize(), page.getPageNum()
+					, page.getTotal(), page.getResult());
 		return pageResp;
 	}
 
