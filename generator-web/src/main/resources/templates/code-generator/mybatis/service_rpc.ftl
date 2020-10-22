@@ -17,6 +17,8 @@ import java.util.List;
 */
 public interface ${classInfo.className}RpcService {
 
+    Result<Health> health();
+
     /**
     * 新增
     */

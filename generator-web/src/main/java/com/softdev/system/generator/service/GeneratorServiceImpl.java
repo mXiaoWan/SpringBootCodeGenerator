@@ -89,8 +89,8 @@ public class GeneratorServiceImpl implements GeneratorService {
         keys.add("model");
         keys.add("modelPageVo");
         keys.add("modelVo");
-        keys.add("serviceRpc");
-        keys.add("serviceRpcImpl");
+        keys.add("service_rpc");
+        keys.add("service_rpc_impl");
 
 
         for (String key : keys) {

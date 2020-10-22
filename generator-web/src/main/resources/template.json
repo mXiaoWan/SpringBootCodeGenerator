@@ -101,7 +101,7 @@
   },
   {
     "id": "2910",
-    "name": "serviceRpc",
+    "name": "service_rpc",
     "group": "mybatis",
     "description": "service_rpc.ftl",
     "className": "baseClassNameRpcService",
@@ -109,7 +109,7 @@
   },
   {
     "id": "2911",
-    "name": "serviceRpcImpl",
+    "name": "service_rpc_impl",
     "group": "mybatis",
     "description": "service_rpc_impl.ftl",
     "className": "baseClassNameRpcServiceImpl",
