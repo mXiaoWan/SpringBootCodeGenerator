@@ -89,6 +89,10 @@ public class GeneratorServiceImpl implements GeneratorService {
         keys.add("model");
         keys.add("modelPageVo");
         keys.add("modelVo");
+        keys.add("serviceRpc");
+        keys.add("serviceRpcImpl");
+
+
         for (String key : keys) {
             String code = resultByParams.get(key);
             TemplateConfig templateConfig = collect.get(key);

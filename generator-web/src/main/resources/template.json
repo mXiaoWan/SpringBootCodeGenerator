@@ -101,11 +101,19 @@
   },
   {
     "id": "2910",
-    "name": "modelVo",
+    "name": "serviceRpc",
     "group": "mybatis",
-    "description": "mapper annotation",
-    "className": "baseClassNameVO",
-    "filePackage": "api.vo.baseClassName"
+    "description": "service_rpc.ftl",
+    "className": "baseClassNameRpcService",
+    "filePackage": "api.rpc.service"
+  },
+  {
+    "id": "2911",
+    "name": "serviceRpcImpl",
+    "group": "mybatis",
+    "description": "service_rpc_impl.ftl",
+    "className": "baseClassNameRpcServiceImpl",
+    "filePackage": "rpc"
   },
   {
     "id": "30",
