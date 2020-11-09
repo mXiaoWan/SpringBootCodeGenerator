@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @date ${.now?string('yyyy-MM-dd')}
  */
 @Data
-@ApiModel("${classInfo.classComment}")
+@ApiModel("${classInfo.classComment}modelPageVo")
 public class ${classInfo.className}PageableVO  extends Pageable implements Serializable {
 
     private static final long serialVersionUID = 1L;
